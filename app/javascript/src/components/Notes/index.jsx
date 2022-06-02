@@ -11,16 +11,16 @@ import Menubar from "components/Common/Menubar";
 
 import { MENUBAR_DATA } from "./constants";
 import { NOTES_DATA } from "./constants";
-// import DeleteAlert from "./DeleteAlert";
+import DeleteAlert from "./DeleteAlert";
 // import NewNotePane from "./Pane/Create";
 
 const Notes = () => {
   // const [showNewNotePane, setShowNewNotePane] = useState(false);
-  // const [showDeleteAlert, setShowDeleteAlert] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-  // const [selectedNoteIds, setSelectedNoteIds] = useState([]);
   const [notes, setNotes] = useState([]);
   const [category, setCategory] = useState("All");
+  const [showDeleteAlert, setShowDeleteAlert] = useState(false);
+  const [selectedNoteIds, setSelectedNoteIds] = useState(null);
 
   // useEffect(() => {
   //   fetchNotes for selected category & change when category changes
@@ -29,6 +29,11 @@ const Notes = () => {
   useEffect(() => {
     setNotes([...NOTES_DATA]);
   }, []);
+
+  const handleDelete = id => {
+    setShowDeleteAlert(true);
+    setSelectedNoteIds(id);
+  };
 
   return (
     <>
@@ -54,7 +59,9 @@ const Notes = () => {
           menuBarToggle
         />
         {notes.length ? (
-          notes?.map((note, key) => <Card key={key} note={note} />)
+          notes?.map(note => (
+            <Card key={note.id} note={note} deleteAction={handleDelete} />
+          ))
         ) : (
           <EmptyState
             image={EmptyNotesListImage}
@@ -69,14 +76,14 @@ const Notes = () => {
           setShowPane={setShowNewNotePane}
           // fetchNotes={fetchNotes}
         /> */}
-        {/* {showDeleteAlert && (
+        {showDeleteAlert && (
           <DeleteAlert
             selectedNoteIds={selectedNoteIds}
             onClose={() => setShowDeleteAlert(false)}
-            // refetch={fetchNotes}
             setSelectedNoteIds={setSelectedNoteIds}
+            setShowDeleteAlert={setShowDeleteAlert}
           />
-        )} */}
+        )}
       </Container>
     </>
   );
