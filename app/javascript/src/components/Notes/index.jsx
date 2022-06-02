@@ -11,14 +11,14 @@ import Menubar from "components/Common/Menubar";
 
 import { MENUBAR_DATA } from "./constants";
 import { NOTES_DATA } from "./constants";
-import DeleteAlert from "./DeleteAlert";
-import NewNotePane from "./Pane/Create";
+// import DeleteAlert from "./DeleteAlert";
+// import NewNotePane from "./Pane/Create";
 
 const Notes = () => {
-  const [showNewNotePane, setShowNewNotePane] = useState(false);
-  const [showDeleteAlert, setShowDeleteAlert] = useState(false);
+  // const [showNewNotePane, setShowNewNotePane] = useState(false);
+  // const [showDeleteAlert, setShowDeleteAlert] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedNoteIds, setSelectedNoteIds] = useState([]);
+  // const [selectedNoteIds, setSelectedNoteIds] = useState([]);
   const [notes, setNotes] = useState([]);
   const [category, setCategory] = useState("All");
 
@@ -42,7 +42,7 @@ const Notes = () => {
           title="Notes"
           actionBlock={
             <Button
-              onClick={() => setShowNewNotePane(true)}
+              // onClick={() => setShowNewNotePane(true)}
               label="Add New Note"
               icon="ri-add-line"
             />
@@ -60,23 +60,23 @@ const Notes = () => {
             image={EmptyNotesListImage}
             title="Looks like you don't have any notes!"
             subtitle="Add your notes to send customized emails to them."
-            primaryAction={() => setShowNewNotePane(true)}
+            // primaryAction={() => setShowNewNotePane(true)}
             primaryActionLabel="Add New Note"
           />
         )}
-        <NewNotePane
+        {/* <NewNotePane
           showPane={showNewNotePane}
           setShowPane={setShowNewNotePane}
           // fetchNotes={fetchNotes}
-        />
-        {showDeleteAlert && (
+        /> */}
+        {/* {showDeleteAlert && (
           <DeleteAlert
             selectedNoteIds={selectedNoteIds}
             onClose={() => setShowDeleteAlert(false)}
             // refetch={fetchNotes}
             setSelectedNoteIds={setSelectedNoteIds}
           />
-        )}
+        )} */}
       </Container>
     </>
   );

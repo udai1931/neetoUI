@@ -1,6 +1,6 @@
+// @ts-nocheck
 import React, { useEffect, useState } from "react";
 
-// @ts-ignore
 import { PageLoader } from "neetoui";
 import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
