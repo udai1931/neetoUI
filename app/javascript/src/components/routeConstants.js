@@ -1,3 +1,4 @@
+import Contacts from "components/Contacts";
 import Notes from "components/Notes";
 
 export const DASHBOARD_PATH = "/";
@@ -11,6 +12,6 @@ export const ROUTES = [
   },
   {
     path: CONTACTS_PATH,
-    component: Notes,
+    component: Contacts,
   },
 ];

@@ -5,11 +5,11 @@ import { Search, Settings, Plus } from "neetoicons";
 import { Typography } from "neetoui";
 import { MenuBar } from "neetoui/layouts";
 
-function Menubar({ setCategory, options }) {
+function Menubar({ title, setCategory, options }) {
   const [isSearchCollapsed, setIsSearchCollapsed] = useState(true);
 
   return (
-    <MenuBar showMenu={true} title="Contacts">
+    <MenuBar showMenu={true} title={title}>
       {options?.heads?.map((head, idx) => (
         <MenuBar.Block
           label={head.title}
