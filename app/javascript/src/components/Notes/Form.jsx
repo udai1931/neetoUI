@@ -5,29 +5,19 @@ import { Button, Pane } from "neetoui";
 import { Toastr } from "neetoui";
 import { Input, Textarea } from "neetoui/formik";
 
-import { NOTES_FORM_VALIDATION_SCHEMA } from "../constants";
+import { NOTES_FORM_VALIDATION_SCHEMA } from "./constants";
 
-export default function NoteForm({
-  onClose,
-  // refetch,
-  note,
-}) {
+export default function NoteForm({ onClose, constants }) {
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = () => {
-    try {
-      // await notesApi.create(values);
-      // refetch();
-      onClose();
-      Toastr.success("Form has been successfully saved.");
-    } catch (err) {
-      // logger.error(err);
-    }
+    onClose();
+    Toastr.success("Form has been successfully saved.");
   };
 
   return (
     <Formik
-      initialValues={note}
+      initialValues={constants}
       onSubmit={handleSubmit}
       validateOnBlur={submitted}
       validateOnChange={submitted}

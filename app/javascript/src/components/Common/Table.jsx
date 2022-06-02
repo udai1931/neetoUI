@@ -6,12 +6,9 @@ import { Table as NeetoUITable } from "neetoui";
 import { CONTACTS_TABLE_COLUMN_DATA } from "../Contacts/constants";
 
 const Table = ({
-  // setSelectedNoteIds,
+  // handleDeleteSelection,
   contacts = [],
 }) => (
-  // const [showEditNote, setShowEditNote] = useState(false);
-  // const [selectedNote, setSelectedNote] = useState({});
-
   <div className="notes-table-height w-full">
     <NeetoUITable
       className="contact-table"
@@ -23,4 +20,5 @@ const Table = ({
     />
   </div>
 );
+
 export default Table;
