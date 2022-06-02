@@ -10,6 +10,7 @@ export const NOTES_PATH = "/notes";
 export const CHANGE_PASSWORD_PATH = "/settings?tab=password";
 export const PROFILE_PATH = "/settings?tab=profile";
 export const SETTINGS_PATH = "/settings";
+export const CONTACTS_PATH = "/contacts";
 export const LOGIN_PATH = "/login";
 export const SIGNUP_PATH = "/signup";
 export const RESET_PASSWORD_PATH = "/my/password/new";
@@ -26,6 +27,17 @@ export const AUTH_ROUTES = [
   {
     path: LOGIN_PATH,
     component: Login,
+  },
+];
+
+export const ROUTES = [
+  {
+    path: NOTES_PATH,
+    component: Notes,
+  },
+  {
+    path: CONTACTS_PATH,
+    component: Notes,
   },
 ];
 

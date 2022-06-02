@@ -10,6 +10,7 @@ AllCops:
   # From time to time rubocop adds new cops to say rails etc.
   # So rather than disabling them it's better to enable them,
   # try it out and then disable them manually one by one.
+  SuggestExtensions: false
   NewCops: enable
   Exclude:
     - "app/javascript/**/*"
@@ -442,7 +443,7 @@ Layout/CaseIndentation:
 Layout/LineLength:
   Enabled: true
   Max: 120
-  IgnoredPatterns: [
+  AllowedPatterns: [
     '^\s*#', # line that begins with comment
     '^\s*"', # line that begins with double quote (long string literal)
     "^\\s*'", # line that begins with single quote (long string literal)
