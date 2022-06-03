@@ -38,6 +38,7 @@ const Notes = () => {
   return (
     <>
       <Menubar
+        title="Notes"
         category={category}
         setCategory={setCategory}
         options={MENUBAR_DATA}

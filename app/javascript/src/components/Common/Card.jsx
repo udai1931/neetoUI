@@ -17,7 +17,9 @@ function Card({ note, deleteAction }) {
             buttonStyle="text"
           >
             <li className="m-1">Edit</li>
-            <li onClick={() => deleteAction(note.id)}>Delete</li>
+            <li className="m-1" onClick={() => deleteAction(note.id)}>
+              Delete
+            </li>
           </Dropdown>
         </div>
       </div>

@@ -6,8 +6,8 @@ export const NOTES_FORM_INITIAL_FORM_VALUES = {
 };
 
 export const NOTES_FORM_VALIDATION_SCHEMA = yup.object().shape({
-  title: yup.string().required("Title is required"),
-  description: yup.string().required("Description is required"),
+  title: yup.string().min(4).required("Title is required"),
+  description: yup.string().max(255).required("Description is required"),
 });
 
 export const MENUBAR_DATA = {
