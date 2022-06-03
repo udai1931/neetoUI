@@ -4,11 +4,11 @@ import React from "react";
 import { MenuVertical, Clock } from "neetoicons";
 import { Typography, Dropdown, Avatar, Tooltip } from "neetoui";
 
-function Card({ note }) {
+function Card({ note, deleteAction }) {
   return (
     <div className="neeto-ui-shadow-s h-[146px] w-full p-4">
       <div className="flex">
-        <Typography style="h4">{note.title}</Typography>
+        <Typography style="h4">{note?.title}</Typography>
         <div className="notes-card-dropdown">
           <Dropdown
             icon={MenuVertical}
@@ -17,7 +17,7 @@ function Card({ note }) {
             buttonStyle="text"
           >
             <li className="m-1">Edit</li>
-            <li>Delete</li>
+            <li onClick={() => deleteAction(note.id)}>Delete</li>
           </Dropdown>
         </div>
       </div>
@@ -31,8 +31,8 @@ function Card({ note }) {
         </button>
         <div className="ml-auto flex items-center space-x-2">
           <Clock size={12} />
-          <Tooltip position="bottom" content={note.time}>
-            <Typography style="body3">Created {note.ago}</Typography>
+          <Tooltip position="bottom" content={note?.time}>
+            <Typography style="body3">Created {note?.ago}</Typography>
           </Tooltip>
           <Avatar
             onClick={function noRefCheck() {}}
