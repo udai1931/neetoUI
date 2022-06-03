@@ -1,4 +1,5 @@
-import { Notes, Settings } from "neetoicons";
+// @ts-ignore
+import { Notes, UserCircle, Download } from "neetoicons";
 
 export const APP_NAME = "neetoUI";
 
@@ -13,8 +14,16 @@ export const SIDENAV_LINKS = [
     icon: Notes,
   },
   {
+    label: "Contacts",
+    to: "/contacts",
+    icon: UserCircle,
+  },
+  {
     label: "Settings",
     to: "/settings",
-    icon: Settings,
+    icon: Download,
   },
 ];
+
+export const AVATAR_IMAGE_URL =
+  " https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png";
