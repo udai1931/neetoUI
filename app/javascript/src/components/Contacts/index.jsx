@@ -4,19 +4,42 @@ import React, { useEffect, useState } from "react";
 import { Button } from "neetoui";
 import { Container, Header } from "neetoui/layouts";
 
+import NewPane from "components/Common/CreatePane";
+import DeleteAlert from "components/Common/DeleteAlert";
 import Menubar from "components/Common/Menubar";
 import Table from "components/Common/Table";
 
-import { CONTACTS_DATA, MENUBAR_DATA } from "./constants";
+import {
+  CONTACTS_DATA,
+  MENUBAR_DATA,
+  CONTACTS_FORM_INITIAL_FORM_VALUES,
+} from "./constants";
+import Form from "./Form";
 
 function Contacts() {
   const [searchTerm, setSearchTerm] = useState("");
   const [contacts, setContacts] = useState([]);
   const [category, setCategory] = useState("All");
+  const [showNewContactPane, setShowNewContactPane] = useState(false);
+  const [showDeleteAlert, setShowDeleteAlert] = useState(false);
+  // const [selectedContactId, setSelectedContactId] = useState(null);
 
   useEffect(() => {
     setContacts([...CONTACTS_DATA]);
   }, []);
+
+  const handleDeleteSelection = () => {
+    setShowDeleteAlert(true);
+    // setSelectedContactId(id);
+  };
+
+  const handleDelete = () => {
+    //API request to delete
+    // console.log(selectedContactId)
+    //refetch notes
+    // setSelectedContactId(null);
+    setShowDeleteAlert(false);
+  };
 
   return (
     <>
@@ -31,7 +54,7 @@ function Contacts() {
           title="Contacts"
           actionBlock={
             <Button
-              // onClick={() => setShowNewNotePane(true)}
+              onClick={() => setShowNewContactPane(true)}
               label="Add New Contact"
               icon="ri-add-line"
             />
@@ -42,7 +65,24 @@ function Contacts() {
           }}
           menuBarToggle
         />
-        <Table contacts={contacts} />
+        <Table
+          contacts={contacts}
+          handleDeleteSelection={handleDeleteSelection}
+        />
+        <NewPane
+          showPane={showNewContactPane}
+          setShowPane={setShowNewContactPane}
+          constants={CONTACTS_FORM_INITIAL_FORM_VALUES}
+          PaneTitle="Contact"
+          FormComponent={Form}
+          // fetchNotes={fetchNotes}
+        />
+        {showDeleteAlert && (
+          <DeleteAlert
+            onClose={() => setShowDeleteAlert(false)}
+            handleDelete={handleDelete}
+          />
+        )}
       </Container>
     </>
   );

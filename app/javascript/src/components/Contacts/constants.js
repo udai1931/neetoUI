@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from "react";
 
 import { MenuVertical } from "neetoicons";
@@ -6,21 +7,20 @@ import * as yup from "yup";
 
 import { contacts } from "./contacts";
 
-export const NOTES_FORM_INITIAL_FORM_VALUES = {
+export const CONTACTS_FORM_INITIAL_FORM_VALUES = {
   firstname: "",
   lastname: "",
   email: "",
   role: "",
 };
 
-export const NOTES_FORM_VALIDATION_SCHEMA = yup.object().shape({
-  fistname: yup.string().min(3).required("firstname is required"),
+export const CONTACTS_FORM_VALIDATION_SCHEMA = yup.object().shape({
+  firstname: yup.string().min(3).required("firstname is required"),
   lastname: yup.string().min(3).required("lastname is required"),
   email: yup
     .string()
     .email("Must be a valid email")
     .required("Email is required"),
-  role: yup.string().required("Role is required"),
 });
 
 export const CONTACTS_DATA = contacts;

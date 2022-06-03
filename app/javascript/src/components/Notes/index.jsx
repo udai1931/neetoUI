@@ -6,13 +6,15 @@ import { Button } from "neetoui";
 import { Container, Header } from "neetoui/layouts";
 
 import Card from "components/Common/Card";
+import NewPane from "components/Common/CreatePane";
 import EmptyState from "components/Common/EmptyState";
 import Menubar from "components/Common/Menubar";
 
-import { MENUBAR_DATA } from "./constants";
+import { MENUBAR_DATA, NOTES_FORM_INITIAL_FORM_VALUES } from "./constants";
 import { NOTES_DATA } from "./constants";
-import DeleteAlert from "./DeleteAlert";
-import NewNotePane from "./Pane/Create";
+import Form from "./Form";
+
+import DeleteAlert from "../Common/DeleteAlert";
 
 const Notes = () => {
   const [showNewNotePane, setShowNewNotePane] = useState(false);
@@ -20,7 +22,7 @@ const Notes = () => {
   const [notes, setNotes] = useState([]);
   const [category, setCategory] = useState("All");
   const [showDeleteAlert, setShowDeleteAlert] = useState(false);
-  const [selectedNoteIds, setSelectedNoteIds] = useState(null);
+  const [, setSelectedNoteIds] = useState(null);
 
   // useEffect(() => {
   //   fetchNotes for selected category & change when category changes
@@ -30,9 +32,17 @@ const Notes = () => {
     setNotes([...NOTES_DATA]);
   }, []);
 
-  const handleDelete = id => {
+  const handleDeleteSelection = id => {
     setShowDeleteAlert(true);
     setSelectedNoteIds(id);
+  };
+
+  const handleDelete = () => {
+    //API request to delete
+    // console.log(selectedNoteIds)
+    //refetch notes
+    setSelectedNoteIds(null);
+    setShowDeleteAlert(false);
   };
 
   return (
@@ -61,7 +71,11 @@ const Notes = () => {
         />
         {notes.length ? (
           notes?.map(note => (
-            <Card key={note.id} note={note} deleteAction={handleDelete} />
+            <Card
+              key={note.id}
+              note={note}
+              deleteAction={handleDeleteSelection}
+            />
           ))
         ) : (
           <EmptyState
@@ -72,17 +86,18 @@ const Notes = () => {
             primaryActionLabel="Add New Note"
           />
         )}
-        <NewNotePane
+        <NewPane
           showPane={showNewNotePane}
           setShowPane={setShowNewNotePane}
+          constants={NOTES_FORM_INITIAL_FORM_VALUES}
+          PaneTitle="Note"
+          FormComponent={Form}
           // fetchNotes={fetchNotes}
         />
         {showDeleteAlert && (
           <DeleteAlert
-            selectedNoteIds={selectedNoteIds}
             onClose={() => setShowDeleteAlert(false)}
-            setSelectedNoteIds={setSelectedNoteIds}
-            setShowDeleteAlert={setShowDeleteAlert}
+            handleDelete={handleDelete}
           />
         )}
       </Container>
