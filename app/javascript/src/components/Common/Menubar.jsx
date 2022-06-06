@@ -1,4 +1,3 @@
-// @ts-nocheck
 import React, { useState } from "react";
 
 import { Search, Settings, Plus } from "neetoicons";
@@ -9,11 +8,11 @@ function Menubar({ title, setCategory, options }) {
   const [isSearchCollapsed, setIsSearchCollapsed] = useState(true);
 
   return (
-    <MenuBar showMenu={true} title={title}>
-      {options?.heads?.map((head, idx) => (
+    <MenuBar showMenu title={title}>
+      {options?.heads?.map(head => (
         <MenuBar.Block
           label={head.title}
-          key={idx}
+          key={head.title}
           count={head.count}
           onClick={() => setCategory(head.title)}
         />
@@ -23,7 +22,7 @@ function Menubar({ title, setCategory, options }) {
         iconProps={[
           {
             icon: Search,
-            onClick: () => setIsSearchCollapsed(!isSearchCollapsed),
+            onClick: prevState => setIsSearchCollapsed(!prevState),
           },
         ]}
       >
@@ -40,8 +39,12 @@ function Menubar({ title, setCategory, options }) {
         collapse={isSearchCollapsed}
         onCollapse={() => setIsSearchCollapsed(true)}
       />
-      {options?.segments?.map((segment, idx) => (
-        <MenuBar.Block key={idx} label={segment.title} count={segment.count} />
+      {options?.segments?.map(segment => (
+        <MenuBar.Block
+          key={segment.title}
+          label={segment.title}
+          count={segment.count}
+        />
       ))}
       <MenuBar.SubTitle
         iconProps={[
@@ -65,8 +68,8 @@ function Menubar({ title, setCategory, options }) {
           Tags
         </Typography>
       </MenuBar.SubTitle>
-      {options?.tags?.map((tag, idx) => (
-        <MenuBar.Block key={idx} label={tag.title} count={tag.count} />
+      {options?.tags?.map(tag => (
+        <MenuBar.Block key={tag.title} label={tag.title} count={tag.count} />
       ))}
     </MenuBar>
   );

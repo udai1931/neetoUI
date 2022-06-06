@@ -11,17 +11,15 @@ const Sidebar = () => {
   const bottomLinks = [
     {
       label: "My Profile",
-      // onClick: () => history.push(PROFILE_PATH, { resetTab: true }),
     },
     {
       label: "Logout",
-      // onClick: handleLogout,
     },
   ];
 
   const handleCollapse = e => {
     e.preventDefault();
-    setIsSidebarCollapsed(!isSidebarCollapsed);
+    setIsSidebarCollapsed(prevState => !prevState);
   };
 
   return (
@@ -32,7 +30,7 @@ const Sidebar = () => {
       profileInfo={{
         name: "Oliver Smith",
         imageUrl: AVATAR_IMAGE_URL,
-        email: "oliver.smith@gmail.com",
+        email: "oliver.smith@bigbinary.com",
         bottomLinks,
       }}
       footerLinks={[

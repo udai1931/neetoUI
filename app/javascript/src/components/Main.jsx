@@ -1,4 +1,3 @@
-// @ts-nocheck
 import React, { useEffect, useState } from "react";
 
 import { PageLoader } from "neetoui";
@@ -7,9 +6,8 @@ import { ToastContainer } from "react-toastify";
 
 import { setAuthHeaders } from "apis/axios";
 import { initializeLogger } from "common/logger";
+import Sidebar from "components/Common/Sidebar";
 import { ROUTES } from "components/routeConstants";
-
-import Sidebar from "./Common/Sidebar";
 
 const Main = () => {
   const [loading, setLoading] = useState(true);

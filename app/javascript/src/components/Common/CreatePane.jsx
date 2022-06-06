@@ -3,7 +3,6 @@ import React from "react";
 import { Pane, Typography } from "neetoui";
 
 export default function NewPane({
-  // fetchNotes,
   showPane,
   setShowPane,
   constants,
@@ -19,11 +18,7 @@ export default function NewPane({
           Create a New {PaneTitle}
         </Typography>
       </Pane.Header>
-      <FormComponent
-        onClose={onClose}
-        // refetch={fetchNotes}
-        constants={constants}
-      />
+      <FormComponent onClose={onClose} constants={constants} />
     </Pane>
   );
 }
