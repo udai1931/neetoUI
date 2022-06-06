@@ -67,7 +67,7 @@ export const NOTES_DATA = [
       "\"Are you getting my texts??? she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting. Of course he was getting them, but if he wasn't getting",
     time: "Wdnesday 10.30AM",
     ago: "2 days ago",
-    createdby: "Udai Gupta",
+    createdby: "Oliver Smith",
   },
   {
     id: 2,
@@ -76,7 +76,7 @@ export const NOTES_DATA = [
       "\"Are you getting my texts??? she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting. Of course he was getting them, but if he wasn't getting",
     time: "Wdnesday 10.30AM",
     ago: "2 days ago",
-    createdby: "Udai Gupta",
+    createdby: "Oliver Smith",
   },
   {
     id: 3,
@@ -85,7 +85,7 @@ export const NOTES_DATA = [
       "\"Are you getting my texts??? she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting. Of course he was getting them, but if he wasn't getting",
     time: "Wdnesday 10.30AM",
     ago: "2 days ago",
-    createdby: "Udai Gupta",
+    createdby: "Oliver Smith",
   },
   {
     id: 4,
@@ -94,6 +94,6 @@ export const NOTES_DATA = [
       "\"Are you getting my texts??? she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting. Of course he was getting them, but if he wasn't getting",
     time: "Wdnesday 10.30AM",
     ago: "2 days ago",
-    createdBy: "Udai Gupta",
+    createdBy: "Oliver Smith",
   },
 ];

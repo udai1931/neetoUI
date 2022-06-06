@@ -1,4 +1,3 @@
-// @ts-nocheck
 import React, { useEffect, useState } from "react";
 
 import { Button } from "neetoui";
@@ -22,7 +21,6 @@ function Contacts() {
   const [category, setCategory] = useState("All");
   const [showNewContactPane, setShowNewContactPane] = useState(false);
   const [showDeleteAlert, setShowDeleteAlert] = useState(false);
-  // const [selectedContactId, setSelectedContactId] = useState(null);
 
   useEffect(() => {
     setContacts([...CONTACTS_DATA]);
@@ -30,14 +28,9 @@ function Contacts() {
 
   const handleDeleteSelection = () => {
     setShowDeleteAlert(true);
-    // setSelectedContactId(id);
   };
 
   const handleDelete = () => {
-    //API request to delete
-    // console.log(selectedContactId)
-    //refetch notes
-    // setSelectedContactId(null);
     setShowDeleteAlert(false);
   };
 
@@ -75,7 +68,6 @@ function Contacts() {
           constants={CONTACTS_FORM_INITIAL_FORM_VALUES}
           PaneTitle="Contact"
           FormComponent={Form}
-          // fetchNotes={fetchNotes}
         />
         {showDeleteAlert && (
           <DeleteAlert

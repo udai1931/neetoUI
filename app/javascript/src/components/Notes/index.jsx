@@ -1,4 +1,3 @@
-// @ts-nocheck
 import React, { useState, useEffect } from "react";
 
 import EmptyNotesListImage from "images/EmptyNotesList";
@@ -7,6 +6,7 @@ import { Container, Header } from "neetoui/layouts";
 
 import Card from "components/Common/Card";
 import NewPane from "components/Common/CreatePane";
+import DeleteAlert from "components/Common/DeleteAlert";
 import EmptyState from "components/Common/EmptyState";
 import Menubar from "components/Common/Menubar";
 
@@ -14,34 +14,22 @@ import { MENUBAR_DATA, NOTES_FORM_INITIAL_FORM_VALUES } from "./constants";
 import { NOTES_DATA } from "./constants";
 import Form from "./Form";
 
-import DeleteAlert from "../Common/DeleteAlert";
-
 const Notes = () => {
   const [showNewNotePane, setShowNewNotePane] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [notes, setNotes] = useState([]);
   const [category, setCategory] = useState("All");
   const [showDeleteAlert, setShowDeleteAlert] = useState(false);
-  const [, setSelectedNoteIds] = useState(null);
-
-  // useEffect(() => {
-  //   fetchNotes for selected category & change when category changes
-  // }, [category]);
 
   useEffect(() => {
     setNotes([...NOTES_DATA]);
   }, []);
 
-  const handleDeleteSelection = id => {
+  const handleDeleteSelection = () => {
     setShowDeleteAlert(true);
-    setSelectedNoteIds(id);
   };
 
   const handleDelete = () => {
-    //API request to delete
-    // console.log(selectedNoteIds)
-    //refetch notes
-    setSelectedNoteIds(null);
     setShowDeleteAlert(false);
   };
 
@@ -92,7 +80,6 @@ const Notes = () => {
           constants={NOTES_FORM_INITIAL_FORM_VALUES}
           PaneTitle="Note"
           FormComponent={Form}
-          // fetchNotes={fetchNotes}
         />
         {showDeleteAlert && (
           <DeleteAlert

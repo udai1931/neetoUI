@@ -17,10 +17,10 @@ export default function ContactForm({ onClose, constants }) {
 
   return (
     <Formik
-      initialValues={constants}
-      onSubmit={handleSubmit}
       validateOnBlur={submitted}
       validateOnChange={submitted}
+      initialValues={constants}
+      onSubmit={handleSubmit}
       validationSchema={CONTACTS_FORM_VALIDATION_SCHEMA}
     >
       {({ isSubmitting }) => (
@@ -28,23 +28,23 @@ export default function ContactForm({ onClose, constants }) {
           <Pane.Body className="space-y-6">
             <div className="flex w-full">
               <Input
+                required
                 label="First Name"
                 name="firstname"
                 className="w-[50%]"
-                required
               />
               <Input
+                required
                 label="Last Name"
                 name="lastname"
                 className="ml-2"
-                required
               />
             </div>
             <Input
+              required
               label="Email Address"
               name="email"
               className="w-full flex-grow-0"
-              required
             />
             <Select
               name="role"
@@ -59,13 +59,13 @@ export default function ContactForm({ onClose, constants }) {
           </Pane.Body>
           <Pane.Footer>
             <Button
+              disabled={isSubmitting}
+              loading={isSubmitting}
               type="submit"
               label="Save Changes"
               size="large"
               style="primary"
               className="mr-3"
-              disabled={isSubmitting}
-              loading={isSubmitting}
               onClick={() => setSubmitted(true)}
             />
             <Button
